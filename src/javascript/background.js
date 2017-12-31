@@ -51,30 +51,30 @@ ChaZD.prototype.checkErrorCode = function (errorCode) {
         case 0:
             response.message = "query success";
             break;
-        case 20: 
+        case 103:
             response.message = "要翻译的文本过长";
             response.error = 1;
-            response.errorCode = 20;
+            response.errorCode = 103;
             break;
-        case 30:
+        case 302:
             response.message = "无法进行有效的翻译";
             response.error = 1;
-            response.errorCode = 30;
+            response.errorCode = 302;
             break;
-        case 40:
+        case 102:
             response.message = "不支持的语言类型";
             response.error = 1;
-            response.errorCode = 40;
+            response.errorCode = 102;
             break;
-        case 50:
+        case 108:
             response.message = "无效的key";
             response.error = 1;
-            response.errorCode = 50;
+            response.errorCode = 108;
             break;
-        case 60:
+        case 301:
             response.message = "无辞典结果";
             response.error = 1;
-            response.errorCode = 60;
+            response.errorCode = 301;
             break;
         default:
     }
