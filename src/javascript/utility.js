@@ -1,20 +1,20 @@
-var api = {
+/*var api = {
     key: 1116151381,
     keyfrom : "youdaocidian"
-};
+};*/
 
-var urls = {
+/*var urls = {
     dict : "http://fanyi.youdao.com/openapi.do?keyfrom=" + api.keyfrom +"&key="+ api.key +"&type=data&doctype=json&version=1.1&q=",
     voice : "http://dict.youdao.com/dictvoice?audio=",
     dictHttps : "https://fanyi.youdao.com/openapi.do?keyfrom=" + api.keyfrom +"&key="+ api.key +"&type=data&doctype=json&version=1.1&q=",
     voiceHttps : "https://dict.youdao.com/dictvoice?audio=",
-};
+};*/
 
 var templateUrls = {
-    dict : "http://fanyi.youdao.com/openapi.do?keyfrom=#{2}&key=#{1}&type=data&doctype=json&version=1.1&q=",
+    dict: "http://openapi.youdao.com/api?q=#{1}&from=#{2}&to=#{3}&appKey=#{4}&salt=#{5}&sign=#{6}",
     voice : "http://dict.youdao.com/dictvoice?audio=",
-    dictHttps : "https://fanyi.youdao.com/openapi.do?keyfrom=#{2}&key=#{1}&type=data&doctype=json&version=1.1&q=",
-    voiceHttps : "https://dict.youdao.com/dictvoice?audio=",
+    dictHttps : "https://openapi.youdao.com/api?q=#{1}&from=#{2}&to=#{3}&appKey=#{4}&salt=#{5}&sign=#{6}",
+    voiceHttps : "https://dict.youdao.com/dictvoice?audio="
 };
 var settings = {
     selectMode : "mouseSelect",     //划词的形式：直接划词 or Ctrl + 划词

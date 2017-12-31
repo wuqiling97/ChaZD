@@ -1,10 +1,8 @@
 function ChaZD(queryWord, useHttps, wordSource, sendResponse) {
     this.wordSource = wordSource;
     this.useHttps = useHttps;
-    var basicurl = getbasicurl(useHttps);
-    //console.log(basicurl);
-    var url = basicurl + queryWord;
-    //console.log("Query url: " + url);
+    var url = getbasicurl(useHttps, queryWord);
+    // console.log("Query url: " + url);
     var queryResult = {};
     var self = this;
     var xhr = new XMLHttpRequest();
@@ -24,19 +22,23 @@ function ChaZD(queryWord, useHttps, wordSource, sendResponse) {
     };
     xhr.send();
 }
-function getbasicurl(useHttps) {
-    var thisurl = (useHttps ? urls.dictHttps : urls.dict);
-    var chazduserkey = localStorage.getItem("chazduserkey");
-    var chazduserkeyfrom = localStorage.getItem("chazduserkeyfrom");
-    //console.log(chazduserkey,chazduserkeyfrom);
-    if(chazduserkey && chazduserkey !== "" && chazduserkeyfrom && chazduserkeyfrom !== "") {
+function getbasicurl(useHttps, queryWord) {
+    var thisurl = "";
+    var appKey = localStorage.getItem("chazduserkey");
+    var appSecret = localStorage.getItem("chazduserkeyfrom");
+    //console.log(appKey,appSecret);
+    var salt = (new Date).getTime();
+    var from = 'en';
+    var to = 'zh-CHS';
+    var str1 = appKey + queryWord + salt + appSecret;
+    var sign = md5(str1);
+    if(appKey && appKey !== "" && appSecret && appSecret !== "") {
         if (useHttps) {
-            thisurl = fmt(templateUrls.dictHttps, chazduserkey, chazduserkeyfrom);
+            thisurl = fmt(templateUrls.dictHttps, queryWord, from, to, appKey, salt, sign);
         } else {
-            thisurl = fmt(templateUrls.dict, chazduserkey, chazduserkeyfrom);
+            thisurl = fmt(templateUrls.dict, queryWord, from, to, appKey, salt, sign);
         }   
     }   
-    
     return thisurl;
 }
 ChaZD.prototype.checkErrorCode = function (errorCode) {
@@ -45,7 +47,7 @@ ChaZD.prototype.checkErrorCode = function (errorCode) {
         "error": 0,
         "errorCode": 0
     };
-    switch (errorCode) {
+    switch (parseInt(errorCode)) {
         case 0:
             response.message = "query success";
             break;
@@ -176,7 +178,7 @@ ChaZD.prototype.parseBasicPhonetic = function (basic, queryWord) {
 };
 
 ChaZD.prototype.initVoice = function (queryWord, type) {
-    var src = (this.useHttps ? urls.voiceHttps : urls.voice) + queryWord;
+    var src = (this.useHttps ? templateUrls.voiceHttps : templateUrls.voice) + queryWord;
     if(type !== undefined) {
         src = src + "&type=" + type;
     }

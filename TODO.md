@@ -10,3 +10,7 @@ TODO LIST
 7. 设计一个新的插件图标
 8. <del>修改popup页面的显示布局，使其更简洁</del>
 9. 考虑整合mdict，实现离线查词功能。
+
+thinkam
+修改checkErrorCode
+生成crx

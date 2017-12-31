@@ -20,7 +20,7 @@
 
   "background": {
       "persistent": true,
-      "scripts": [ "public/js/utility.min.js", "public/js/background.min.js" ]
+      "scripts": [ "public/js/utility.min.js", "public/js/background.min.js", "public/js/md5.min.js"]
    },
 
   "content_scripts": [ {
