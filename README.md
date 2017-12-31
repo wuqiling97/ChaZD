@@ -1,3 +1,14 @@
+ChaZD-thinkam
+=====
+
+使用说明
+-----------
+
+获取
+-----------
+[crx 文件](https://github.com/codethereforam/ChaZD/blob/master/ChaZD-thinkam.crx)
+
+
 ChaZD
 =====
 

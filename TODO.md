@@ -12,5 +12,4 @@ TODO LIST
 9. 考虑整合mdict，实现离线查词功能。
 
 thinkam
-生成crx
 支持中译英
