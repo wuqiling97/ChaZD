@@ -7,3 +7,5 @@ style/.sass-cache/
 node_modules/
 release.sh
 *.zip
+/.idea/
+/package-lock.json
