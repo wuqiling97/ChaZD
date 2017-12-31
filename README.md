@@ -6,7 +6,7 @@ ChaZD-thinkam
 
 获取
 -----------
-[crx 文件](https://github.com/codethereforam/ChaZD/blob/master/ChaZD-thinkam.crx)
+[crx 文件](https://github.com/codethereforam/ChaZD/raw/master/ChaZD-thinkam.crx)
 
 
 ChaZD
