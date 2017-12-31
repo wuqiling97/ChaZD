@@ -118,6 +118,9 @@ document.querySelector("#setting-button").addEventListener("click", function (ev
     } else {
         settingBlock.style.height = 0;
     }
+    //显示key和keyfrom的值
+    document.querySelector("#userkey").value = localStorage.getItem("chazduserkey");
+    document.querySelector("#userkeyfrom").value = localStorage.getItem("chazduserkeyfrom");
 });
 
 function totalHeight(className) {
