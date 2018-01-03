@@ -22,11 +22,16 @@ function queryInPopup(queryText) {
     //console.log("input value: " + $input.value);
     //console.log("quertText: " + queryText);
     if (queryText) {
-        $input.value = queryText;
-        chrome.extension.sendMessage({queryWord: queryText, source: "popup", useHttps: useHttpsValue}, buildResult);
-    }
-    else {
-        chrome.extension.sendMessage({queryWord: $input.value, source: "popup", useHttps: useHttpsValue}, buildResult);
+        var str = trim(queryText);
+        if(str !== "") {
+            $input.value = str;
+            chrome.extension.sendMessage({queryWord: str, source: "popup", useHttps: useHttpsValue}, buildResult);
+        }
+    } else {
+        var str = trim($input.value);
+        if(str !== "") {
+            chrome.extension.sendMessage({queryWord: str, source: "popup", useHttps: useHttpsValue}, buildResult);
+        }
     }
 }
 
