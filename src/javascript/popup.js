@@ -72,10 +72,6 @@ $input.addEventListener("keypress", function (event) {
     }
 });
 
-$input.addEventListener("blur", function (event) {
-    queryInPopup();
-});
-
 function buildVoice(voice) {
     var src = voice.getAttribute("data-src");
     //console.log("voice src: [] " + src);
