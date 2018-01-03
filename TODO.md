@@ -13,4 +13,6 @@ TODO LIST
 
 thinkam
 <del>支持中译英</del>
-selection模式添加网络释义
+<del>selection模式添加网络释义</del>
+popup模式取消setTimeout查词
+检查翻译请求次数

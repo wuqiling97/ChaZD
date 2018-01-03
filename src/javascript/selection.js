@@ -239,19 +239,18 @@
                 
                 //console.log("inner onclick:" + singleVoiceButton.onclick);
                 //console.log(document.querySelector(".voice-container") === singleVoiceButton);
-                
+
                 var temp = document.createElement("div");
                 if (resultObj.basicBlock) {
                     temp.innerHTML = resultObj.basicBlock;
                     $resultContainer.appendChild(temp);
                 }
-                else if (resultObj.haveTranslation) {
-                    $resultContainer.querySelector(".title-translation").style.display = "block";
-                } else if (resultObj.haveWebTranslation) {
-                    temp.innerHTML = resultObj.webBlock;
+                if (resultObj.haveWebTranslation) {
+                    temp.innerHTML += resultObj.webBlock;
                     $resultContainer.appendChild(temp);
                     $resultContainer.querySelector(".web-title").innerHTML = "网络释义";
-                } else {
+                }
+                if(!resultObj.haveTranslation && !resultObj.haveWebTranslation) {
                     $resultContainer.innerHTML = "╮(╯▽╰)╭划词君无能为力啊<br> 还是右键问问谷歌君吧=>";
                 }
             } else {
