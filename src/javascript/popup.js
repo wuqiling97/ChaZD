@@ -66,13 +66,14 @@ $button.addEventListener("click", function (event) {
 
 $input.select();
 
-$input.addEventListener("input", function (event) {
-    var currentInput = $input.value;
-    setTimeout(function () {
-        if ($input.value === currentInput && $input.value !== "") {
+$input.addEventListener("keypress", function (event) {
+    if(event.keyCode === 13) {
             queryInPopup();
-        }
-    }, 500);
+    }
+});
+
+$input.addEventListener("blur", function (event) {
+    queryInPopup();
 });
 
 function buildVoice(voice) {

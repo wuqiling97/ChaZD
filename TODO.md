@@ -14,5 +14,5 @@ TODO LIST
 thinkam
 <del>支持中译英</del>
 <del>selection模式添加网络释义</del>
-popup模式取消setTimeout查词
+<del>popup模式查词将setTimeout改为enter or blur</del>
 检查翻译请求次数
