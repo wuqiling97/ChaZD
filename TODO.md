@@ -12,4 +12,5 @@ TODO LIST
 9. 考虑整合mdict，实现离线查词功能。
 
 thinkam
-支持中译英
+<del>支持中译英</del>
+selection模式添加网络释义

@@ -58,7 +58,8 @@
                 return;
             }
             
-            if (selectText === "" || !(/^[^\u4e00-\u9fa5]+$/.test(selectText))) {return;}
+            // if (selectText === "" || !(/^[^\u4e00-\u9fa5]+$/.test(selectText))) {return;}
+            if (selectText === "") {return;}
             var haveResult = document.documentElement.querySelectorAll(".ChaZD-result-container");
             for (var i = 0, len = haveResult.length; i < len; i++) {
                 if (haveResult[i].getAttribute("data-text").toLowerCase() === selectText.toLowerCase()){return;}

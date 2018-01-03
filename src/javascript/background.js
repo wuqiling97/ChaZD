@@ -28,8 +28,8 @@ function getbasicurl(useHttps, queryWord) {
     var appSecret = localStorage.getItem("chazduserkeyfrom");
     //console.log(appKey,appSecret);
     var salt = (new Date).getTime();
-    var from = 'en';
-    var to = 'zh-CHS';
+    var from = 'auto';
+    var to = 'auto';
     var str1 = appKey + queryWord + salt + appSecret;
     var sign = md5(str1);
     if(appKey && appKey !== "" && appSecret && appSecret !== "") {
