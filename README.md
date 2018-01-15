@@ -3,7 +3,7 @@ ChaZD-thinkam
 
 使用说明
 -----------
-参考我的博客[完善chrome翻译插件ChaZD，支持有道智云api](https://www.cnblogs.com/thinkam/p/8159087.html)
+参考我的博客[完善chrome翻译插件ChaZD，支持有道智云api](https://codethereforam.github.io/2017-12-31-ChaZD-youdao/)
 
 获取
 -----------
