@@ -1,14 +1,28 @@
 ChaZD-thinkam
 =====
 
-使用说明
------------
-参考我的博客[完善chrome翻译插件ChaZD，支持有道智云api](https://codethereforam.github.io/2017-12-31-ChaZD-youdao/)
+## 一、新增功能
 
-获取
------------
-[crx 文件](https://github.com/codethereforam/ChaZD/raw/master/ChaZD-thinkam.crx)
+改用有道智云新的api，可以自定义应用ID和密钥
 
+## 二、使用说明
+
+### 2.1 下载插件
+
+下载地址：[ChaZD-thinkam](https://github.com/codethereforam/ChaZD/raw/master/ChaZD-thinkam.crx)
+
+如果你的浏览器支持使用非Web Store的插件，直接将下载的crx拖到chrome://extensions/页面。
+
+如果不支持，将crx文件扩展名改为zip并解压，在chrome://extensions/勾选开发者模式，接着在 Chrome 设置拓展的地方，点击加载未打包的拓展。详细步骤见[chrome怎么安装非官方市场的插件？ - 小赖的回答](https://www.zhihu.com/question/24027794/answer/34500157)。
+
+### 2.2 申请有道智云翻译服务
+
+- 注册[有道智云](http://ai.youdao.com/)帐号并登录到控制台页面
+- 创建一个翻译实例：控制台 > 自然语言翻译 > 翻译实例 > 创建翻译实例
+- 创建一个应用并绑定翻译服务：控制台 > 应用管理 > 我的应用 > 创建应用 > 绑定服务
+- 在插件中绑定应用——将上步骤的应用ID和应用密钥填写到插件设置页中相应的位置，如下图
+
+![](/screenshoot/ChaZD-01.png)
 
 ChaZD
 =====
@@ -60,5 +74,6 @@ grunt                     #部署代码
 部分功能设计借鉴于[TransIt](https://github.com/GDG-Xian/crx-transit)
 
 源码完全开放，欢迎Star、Fork、提交BUG，并提出您宝贵的意见与建议。
+
 
 
