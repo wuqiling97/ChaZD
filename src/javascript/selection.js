@@ -245,6 +245,9 @@
                     temp.innerHTML = resultObj.basicBlock;
                     $resultContainer.appendChild(temp);
                 }
+                if (resultObj.haveTranslation) {
+                    $resultContainer.querySelector(".title-translation").style.display = "block";
+                }
                 if (resultObj.haveWebTranslation) {
                     temp.innerHTML += resultObj.webBlock;
                     $resultContainer.appendChild(temp);
