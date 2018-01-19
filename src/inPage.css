@@ -165,7 +165,9 @@
   margin: 0;
   padding: 0;
 }
-.ChaZD-result-container .basic-container .explains-container .explains-list .explains-item {
+/*修改网络释义字体*/
+.ChaZD-result-container .basic-container .explains-container .explains-list .explains-item,
+.ChaZD-result-container .web-explains-container .web-explains-list li{
   padding: 0px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0 0 5px 0;
