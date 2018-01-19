@@ -1,17 +1,19 @@
-ChaZD-thinkam
-=====
+# ChaZD-thinkam
 
-## 一、新增功能
+简洁易用的英汉字典扩展程序，支持划词， 可自定义有道智云ID、密钥
 
-改用有道智云新的api，可以自定义应用ID和密钥
+## 一、版本介绍
+
+如果你想体验原版的ChaZD，请选择v1.0.0，后面几个版本是我根据个人的使用情况和偏好添加了几个功能，欢迎尝试，具体信息见releases界面。
 
 ## 二、使用说明
 
 ### 2.1 下载插件
 
-下载地址：[ChaZD-thinkam](https://github.com/codethereforam/ChaZD/raw/master/ChaZD-thinkam.crx)
 
-如果你的浏览器支持使用非Web Store的插件，直接将下载的crx拖到chrome://extensions/页面。
+下载地址：https://github.com/codethereforam/ChaZD/releases
+
+选择你想要的版本，下载ChaZD-thinkam.crx文件。如果你的浏览器支持使用非Web Store的插件，直接将下载的crx拖到chrome://extensions/页面。
 
 如果不支持，将crx文件扩展名改为zip并解压，在chrome://extensions/勾选开发者模式，接着在 Chrome 设置拓展的地方，点击加载未打包的拓展。详细步骤见[chrome怎么安装非官方市场的插件？ - 小赖的回答](https://www.zhihu.com/question/24027794/answer/34500157)。
 
@@ -32,10 +34,10 @@ ChaZD 查字典，简洁易用的英汉字典扩展程序，支持划词哦:)
 
 获取
 -----------
-+ [Chrome 网上应用商店](https://chrome.google.com/webstore/detail/chazd/nkiipedegbhbjmajlhpegcpcaacbfggp) 
-+ [crx 文件](https://github.com/ververcpp/ChaZD/blob/master/ChaZD.crx?raw=true)  
++ [Chrome 网上应用商店](https://chrome.google.com/webstore/detail/chazd/nkiipedegbhbjmajlhpegcpcaacbfggp)
++ [crx 文件](https://github.com/ververcpp/ChaZD/blob/master/ChaZD.crx?raw=true)
 
-**注**：安装扩展后，第一次使用请刷新要查词的页面，划词功能才会生效；  
+**注**：安装扩展后，第一次使用请刷新要查词的页面，划词功能才会生效；
 **注2**：非中文版Chrome浏览器的用户，如出现插件弹出窗口字体无法正常显示的情况，麻烦请更改浏览器的最小字号为12px
 （具体步骤: settings-->show advanced settings-->Web content中的Customize fonts... -->Minimum font     size将最小字号改为12px）。
 
@@ -49,7 +51,7 @@ ChaZD 查字典，简洁易用的英汉字典扩展程序，支持划词哦:)
 
 截图
 -----------
-![Screenshoot 1](/screenshoot/screenshoot1.jpg)  
+![Screenshoot 1](/screenshoot/screenshoot1.jpg)
 ---
 ![Screenshoot 2](/screenshoot/screenshoot4.png)
 
@@ -74,6 +76,3 @@ grunt                     #部署代码
 部分功能设计借鉴于[TransIt](https://github.com/GDG-Xian/crx-transit)
 
 源码完全开放，欢迎Star、Fork、提交BUG，并提出您宝贵的意见与建议。
-
-
-
