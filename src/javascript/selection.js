@@ -272,21 +272,20 @@
 
     function buildVoice(voice) {
         var src = voice.getAttribute("data-src");
-        //console.log("voice src: [] " + src);
-        var audioBlock = document.createElement("audio");
-        audioBlock.setAttribute("src", src + "&type=" + currentSettings.defaultVoice);
-        //audioBlock.setAttribute("ended", "this.load()");
-        voice.appendChild(audioBlock);
+        var voiceSrc = src + "&type=" + currentSettings.defaultVoice;
         if (currentSettings.autoAudio === true) {
-            audioBlock.play();
+            pronounce(voiceSrc);
         }
-        audioBlock.addEventListener("ended", function (event) {
-            //console.log("loading src: " + this.getAttribute("src"));
-            this.load();
-        });
         voice.addEventListener("click", function (event) {
             //console.log("playing src: " + audioBlock.getAttribute("src"));
-            audioBlock.play();
+            pronounce(voiceSrc);
+        });
+    }
+
+    function pronounce(src) {
+        chrome.runtime.sendMessage({
+            type: "voice",
+            src: src
         });
     }
 

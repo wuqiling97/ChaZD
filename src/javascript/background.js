@@ -364,7 +364,14 @@ chrome.runtime.onMessage.addListener(
     function (message, sender, sendResponse) {
         //console.log("message from sender:" + JSON.stringify(message));
         //console.log("sender is " + JSON.stringify(sender));
-        new ChaZD(preprocessWord(message.queryWord), message.useHttps, message.source, sendResponse);
+
+        if(message.type !== undefined && message.type === 'voice') {
+            var voice = new Audio();
+            voice.src = message.src;
+            voice.play();
+        } else {
+            new ChaZD(preprocessWord(message.queryWord), message.useHttps, message.source, sendResponse);
+        }
 
         return true;
 });
