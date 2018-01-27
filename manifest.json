@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "ChaZD-thinkam",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "ChaZD 查字典，简洁易用的英汉字典扩展程序，支持划词， 可自定义有道智云ID、密钥",
 
   "permissions": [
