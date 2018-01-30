@@ -105,99 +105,100 @@
 
     var showResultNear = function (text, useHttps, range, event) {
         //if(isExist(text)) return;
-        var resultNearContainer = makeResultContainer(text, useHttps);
-        var arrowMain = makeArrowDiv();
-        document.documentElement.appendChild(resultNearContainer);
-        document.documentElement.appendChild(arrowMain);
-
-        var showNearPosition = {};
-        //文本框中选取的内容返回的left top 为0，此时采集鼠标的位置
-        if (range.left === 0 && range.top === 0) {
-            range = {
-                left: event.clientX,
-                top: event.clientY,
-                height: 15
-            };
-        }
-
-        var containerWidth = resultNearContainer.offsetWidth;
-        //var arrowWidth = arrowMain.width();
-        var rangeWidth = range.right - range.left;
-        //console.log("arrow width: " + arrowWidth);
-        var left = range.left + window.pageXOffset;
-        var top = range.top + window.pageYOffset;
-        var rangeMiddle = rangeWidth/2 + left;
-        var containerLeft = left - (containerWidth - rangeWidth)/2;
-        var arrowLeft = rangeMiddle - 12;
-
-        if (containerLeft < window.pageXOffset) {
-            containerLeft = window.pageXOffset;
-        } else if (containerLeft + containerWidth > window.pageXOffset + document.documentElement.clientWidth) {
-            containerLeft = window.pageXOffset + document.documentElement.clientWidth - containerWidth;
-        }
-
-        var clientHeight = 0;
-        clientHeight = (document.documentElement.clientHeight > document.body.clientHeight) ? document.body.clientHeight : document.documentElement.clientHeight;
-        if (clientHeight === 0) {
-            clientHeight = document.documentElement.clientHeight;
-        }
-        //console.log("[ChaZD]clientHeight : " + clientHeight);
-        
-        if (range.top >= 150) {
-            var bottom = clientHeight - top + 10;
-            var arrowBottom = bottom + 1;
-            showNearPosition = {
-                left: containerLeft,
-                bottom: bottom,
-                arrowLeft: arrowLeft,
-                arrowBottom: arrowBottom
-            };
-        } else {
-            showNearPosition = {
-                left: containerLeft,
-                top: top + range.height + 12,
-                arrowLeft: arrowLeft,
-                arrowTop: top + range.height + 1
-            };
-        }
-
-        // var arrowMain = $arrowMain;
-        // var resultNearContainer = resultNearContainer[0];
-        //resultNearContainer.style.position = "absolute";
-        resultNearContainer.style.left = showNearPosition.left + "px";
-        arrowMain.style.left = showNearPosition.arrowLeft + "px";
-        var chazdArrowOuter = document.querySelectorAll(".ChaZD-arrow-outer");
-        var chazdArrowInner = document.querySelectorAll(".ChaZD-arrow-inner");
-        var i, len;
-        if (showNearPosition.bottom) {
-            resultNearContainer.style.bottom = showNearPosition.bottom + "px";
-            arrowMain.style.bottom = showNearPosition.arrowBottom + "px";
-            for (i = 0, len = chazdArrowOuter.length; i < len; i++) {
-                chazdArrowOuter[i].classList.add("ChaZD-arrow-outer-down");
-                chazdArrowInner[i].classList.add("ChaZD-arrow-inner-down");
+        var resultNearContainer = makeResultContainer(text, useHttps, function() {
+            var showNearPosition = {};
+            //文本框中选取的内容返回的left top 为0，此时采集鼠标的位置
+            if (range.left === 0 && range.top === 0) {
+                range = {
+                    left: event.clientX,
+                    top: event.clientY,
+                    height: 15
+                };
             }
-        }
-        if (showNearPosition.top) {
-            resultNearContainer.style.top = showNearPosition.top + "px";
-            arrowMain.style.top = showNearPosition.arrowTop + "px";
-            for (i = 0, len = chazdArrowOuter.length; i < len; i++) {
-                chazdArrowOuter[i].classList.add("ChaZD-arrow-outer-up");
-                chazdArrowInner[i].classList.add("ChaZD-arrow-inner-up");
-            }
-        }
 
-        if (currentSettings.autoHide) {
-            timeout = setTimeout(function () {
-                if (document.querySelector(".ChaZD-result-container") && document.querySelector(".ChaZD-arrow-main")) {
-                    document.documentElement.removeChild(resultNearContainer);
-                    document.documentElement.removeChild(arrowMain);
-                    ////////currentQueryWord = "";
+            var containerWidth = resultNearContainer.offsetWidth;
+            //var arrowWidth = arrowMain.width();
+            var rangeWidth = range.right - range.left;
+            //console.log("arrow width: " + arrowWidth);
+            var left = range.left + window.pageXOffset;
+            var top = range.top + window.pageYOffset;
+            var rangeMiddle = rangeWidth/2 + left;
+            var containerLeft = left - (containerWidth - rangeWidth)/2;
+            var arrowLeft = rangeMiddle - 12;
+
+            if (containerLeft < window.pageXOffset) {
+                containerLeft = window.pageXOffset;
+            } else if (containerLeft + containerWidth > window.pageXOffset + document.documentElement.clientWidth) {
+                containerLeft = window.pageXOffset + document.documentElement.clientWidth - containerWidth;
+            }
+
+            var clientHeight = 0;
+            clientHeight = (document.documentElement.clientHeight > document.body.clientHeight) ? document.body.clientHeight : document.documentElement.clientHeight;
+            if (clientHeight === 0) {
+                clientHeight = document.documentElement.clientHeight;
+            }
+            //console.log("[ChaZD]clientHeight : " + clientHeight);
+
+            //click处的高度 >= resultNearContainer的高度 + arrowMain的高度
+            if (range.top >= resultNearContainer.offsetHeight + 12) {
+                var bottom = clientHeight - top + 10;
+                var arrowBottom = bottom + 1;
+                showNearPosition = {
+                    left: containerLeft,
+                    bottom: bottom,
+                    arrowLeft: arrowLeft,
+                    arrowBottom: arrowBottom
+                };
+            } else {
+                showNearPosition = {
+                    left: containerLeft,
+                    top: top + range.height + 12,
+                    arrowLeft: arrowLeft,
+                    arrowTop: top + range.height + 1
+                };
+            }
+
+            // var arrowMain = $arrowMain;
+            // var resultNearContainer = resultNearContainer[0];
+            //resultNearContainer.style.position = "absolute";
+            resultNearContainer.style.left = showNearPosition.left + "px";
+            arrowMain.style.left = showNearPosition.arrowLeft + "px";
+            var chazdArrowOuter = document.querySelectorAll(".ChaZD-arrow-outer");
+            var chazdArrowInner = document.querySelectorAll(".ChaZD-arrow-inner");
+            var i, len;
+            if (showNearPosition.bottom) {
+                resultNearContainer.style.bottom = showNearPosition.bottom + "px";
+                arrowMain.style.bottom = showNearPosition.arrowBottom + "px";
+                for (i = 0, len = chazdArrowOuter.length; i < len; i++) {
+                    chazdArrowOuter[i].classList.add("ChaZD-arrow-outer-down");
+                    chazdArrowInner[i].classList.add("ChaZD-arrow-inner-down");
                 }
-            }, 1000 * currentSettings.showDuration);
-        }
-        // var t = setTimeout(function () {
-        //     document.body.removeChild(resultNearContainer);
-        // }, 1000 * duration);
+            }
+            if (showNearPosition.top) {
+                resultNearContainer.style.top = showNearPosition.top + "px";
+                arrowMain.style.top = showNearPosition.arrowTop + "px";
+                for (i = 0, len = chazdArrowOuter.length; i < len; i++) {
+                    chazdArrowOuter[i].classList.add("ChaZD-arrow-outer-up");
+                    chazdArrowInner[i].classList.add("ChaZD-arrow-inner-up");
+                }
+            }
+
+            if (currentSettings.autoHide) {
+                timeout = setTimeout(function () {
+                    if (document.querySelector(".ChaZD-result-container") && document.querySelector(".ChaZD-arrow-main")) {
+                        document.documentElement.removeChild(resultNearContainer);
+                        document.documentElement.removeChild(arrowMain);
+                        ////////currentQueryWord = "";
+                    }
+                }, 1000 * currentSettings.showDuration);
+            }
+            // var t = setTimeout(function () {
+            //     document.body.removeChild(resultNearContainer);
+            // }, 1000 * duration);
+        });
+        document.documentElement.appendChild(resultNearContainer);
+        var arrowMain = makeArrowDiv();
+        document.documentElement.appendChild(arrowMain);
     };
 
     var makeArrowDiv = function () {
@@ -215,7 +216,7 @@
         return arrowDivMain;
     };
 
-    var makeResultContainer = function (text, useHttps) {
+    var makeResultContainer = function (text, useHttps, callback) {
         var $resultContainer = document.createElement("div");
         $resultContainer.classList.add("ChaZD-result-container");
         $resultContainer.setAttribute("data-text", text);
@@ -264,6 +265,9 @@
                 } else {
                     $resultContainer.innerHTML = "<p>词典君罢工啦（┬_┬）<br><br> 是不是网络不太好？<br><br> 稍后再试一次吧</p>";
                 }                
+            }
+            if(callback !== undefined) {
+                callback();
             }
         });
 
