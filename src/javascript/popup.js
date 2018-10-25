@@ -73,8 +73,13 @@ $input.select();
 
 $input.addEventListener("keypress", function (event) {
     if(event.keyCode === 13) {
-            queryInPopup();
+        queryInPopup();
     }
+});
+
+$input.addEventListener("paste", function (e) {
+    // direct call queryInPopup, input.value will be the old one
+    setTimeout(queryInPopup, 0);
 });
 
 function buildVoice(voice) {
